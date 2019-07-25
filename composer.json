@@ -1,0 +1,28 @@
+{
+    "name": "innerent/foundation",
+    "description": "Base package for innerent ecosystem",
+    "authors": [
+        {
+            "name": "Marcelo Barros da Silva",
+            "email": "maxcelos@outlook.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Innerent\\Foundation\\Providers\\FoundationServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "files": [
+            "Helpers/helpers.php"
+        ],
+        "psr-4": {
+            "Innerent\\Foundation\\": ""
+        }
+    }
+}
