@@ -7,6 +7,11 @@
             "email": "maxcelos@outlook.com"
         }
     ],
+    "require" : {
+        "spatie/laravel-collection-macros": "^6.0",
+        "spatie/laravel-cors": "^1.6",
+        "spatie/laravel-json-api-paginate": "^1.6"
+    },
     "extra": {
         "laravel": {
             "providers": [

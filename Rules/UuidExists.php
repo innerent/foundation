@@ -7,16 +7,16 @@ use Illuminate\Contracts\Validation\Rule;
 class UuidExists implements Rule
 {
     protected $model;
+
     /**
      * Create a new rule instance.
      *
-     * @return void
+     * @param $modelClass
      */
-    public function __construct($model)
+    public function __construct($modelClass)
     {
-        $this->model = $model;
+        $this->model = new $modelClass;
     }
-
     /**
      * Determine if the validation rule passes.
      *
@@ -26,9 +26,12 @@ class UuidExists implements Rule
      */
     public function passes($attribute, $value)
     {
-        return $this->model::whereUuid($value)->first() ? true : false;
+        try {
+            return $this->model::whereUuid($value)->first() ? true : false;
+        } catch (\Exception $exception) {
+            return false;
+        }
     }
-
     /**
      * Get the validation error message.
      *

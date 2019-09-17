@@ -3,8 +3,10 @@
 namespace Innerent\Foundation\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 use Innerent\Foundation\Contracts\Repository as RepositoryInterface;
 use phpDocumentor\Reflection\Types\Boolean;
+use Ramsey\Uuid\Exception\InvalidUuidStringException;
 
 abstract class Repository implements RepositoryInterface
 {
@@ -12,7 +14,7 @@ abstract class Repository implements RepositoryInterface
 
     protected $primaryKey;
 
-    function __construct(Model $model, $primaryKey = 'uuid')
+    function __construct(Model $model, $primaryKey = 'id')
     {
         $this->model = $model;
         $this->primaryKey = $primaryKey;
@@ -36,8 +38,14 @@ abstract class Repository implements RepositoryInterface
 
     public function get($id): RepositoryInterface
     {
-        if ($this->primaryKey == 'uuid') {
-            $modelFound = $this->model->whereUuid($id)->first();
+        if (in_array('Dyrynda\Database\Support\GeneratesUuid', class_uses($this->model))) {
+            try {
+                $modelFound = $this->model->whereUuid($id)->first();
+            } catch (InvalidUuidStringException $exception) {
+                Log::error($exception);
+
+                $modelFound = false;
+            }
         } else {
             $modelFound = $this->model->where($this->primaryKey, $id)->first();
         }

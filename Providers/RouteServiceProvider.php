@@ -61,7 +61,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('v1')
+        Route::prefix(env('INNERENT_API_PREFIX', 'v1'))
             ->middleware('api')
             ->namespace($this->moduleNamespace)
             ->group(__DIR__ . '/../Routes/api.php');
