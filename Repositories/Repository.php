@@ -77,7 +77,7 @@ abstract class Repository implements RepositoryInterface
         return $this;
     }
 
-    public function toModel() : Model
+    public function toModel(): Model
     {
         return $this->model;
     }

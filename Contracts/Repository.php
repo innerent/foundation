@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 interface Repository
 {
-    public function make(array $data) : Repository;
+    public function make(array $data): Repository;
 
-    public function update(array $data) : Repository;
+    public function update(array $data): Repository;
 
-    public function get($id) : Repository;
+    public function get($id): Repository;
 
     public function delete($id, $force = false);
 
     public function setPrimaryKey($primaryKey);
 
-    public function toModel() : Model;
+    public function toModel(): Model;
 
-    public function toArray() : array;
+    public function toArray(): array;
 }
