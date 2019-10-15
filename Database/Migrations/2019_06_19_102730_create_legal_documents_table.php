@@ -34,6 +34,8 @@ class CreateLegalDocumentsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('legal_documents');
+        Schema::enableForeignKeyConstraints();
     }
 }

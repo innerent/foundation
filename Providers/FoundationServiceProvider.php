@@ -41,15 +41,19 @@ class FoundationServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../Config/config.php' => config_path('foundation.php'),
         ], 'config');
+
         $this->mergeConfigFrom(
             __DIR__.'/../Config/config.php', 'foundation'
         );
+
         $this->publishes([
             __DIR__.'/../Config/auth.php' => config_path('auth.php'),
         ], 'config');
+
         $this->publishes([
             __DIR__.'/../Config/cors.php' => config_path('cors.php'),
         ], 'config');
+
         $this->publishes([
             __DIR__.'/../Config/json-api-paginate.php' => config_path('json-api-paginate.php'),
         ], 'config');
@@ -73,7 +77,7 @@ class FoundationServiceProvider extends ServiceProvider
 
         $this->publishes([
             $sourcePath => $viewPath
-        ], 'views');
+        ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
             return $path . '/modules/foundation';
@@ -103,7 +107,7 @@ class FoundationServiceProvider extends ServiceProvider
      */
     public function registerFactories()
     {
-        if (! app()->environment('production')) {
+        if (! app()->environment('production') && $this->app->runningInConsole()) {
             app(Factory::class)->load(__DIR__ . '/../Database/factories');
         }
     }

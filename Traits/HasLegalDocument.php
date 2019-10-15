@@ -2,7 +2,7 @@
 
 namespace Innerent\Foundation\Traits;
 
-use Innerent\Foundation\Entities\LegalDocument;
+use Innerent\Foundation\Models\LegalDocument;
 
 trait HasLegalDocument
 {

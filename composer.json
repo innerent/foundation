@@ -1,16 +1,22 @@
 {
     "name": "innerent/foundation",
-    "description": "Base package for innerent ecosystem",
+    "description": "",
     "authors": [
         {
             "name": "Marcelo Barros da Silva",
             "email": "maxcelos@outlook.com"
         }
     ],
-    "require" : {
+    "require": {
+        "dyrynda/laravel-efficient-uuid": "^3.0",
+        "dyrynda/laravel-model-uuid": "^5.0",
+        "laravel/passport": "^7.5",
         "spatie/laravel-collection-macros": "^6.0",
         "spatie/laravel-cors": "^1.6",
         "spatie/laravel-json-api-paginate": "^1.6"
+    },
+    "require-dev": {
+        "nunomaduro/phpinsights": "^1.9"
     },
     "extra": {
         "laravel": {

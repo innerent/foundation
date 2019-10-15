@@ -1,12 +1,12 @@
 <?php
 
-if (! function_exists('mod')) {
+if (!function_exists('mod')) {
     function mod($dividendo, $divisor) {
-        return round($dividendo - (floor($dividendo / $divisor) * $divisor));
+        return round( $dividendo - ( floor( $dividendo / $divisor ) * $divisor ) );
     }
 }
 
-if (! function_exists('cpfGen')) {
+if (!function_exists('cpfGen')) {
     function cpfGen($comPontos = false) {
         $n1 = rand( 0, 9 );
         $n2 = rand( 0, 9 );
@@ -41,7 +41,7 @@ if (! function_exists('cpfGen')) {
     }
 }
 
-if (! function_exists('cnpjGen')) {
+if (!function_exists('cnpjGen')) {
     function cnpjGen($comPontos = false) {
         $n1  = rand( 0, 9 );
         $n2  = rand( 0, 9 );

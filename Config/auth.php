@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Innerent\People\Entities\User::class,
+            'model' => Innerent\People\Models\User::class,
         ],
 
         // 'users' => [

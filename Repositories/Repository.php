@@ -5,7 +5,6 @@ namespace Innerent\Foundation\Repositories;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 use Innerent\Foundation\Contracts\Repository as RepositoryInterface;
-use phpDocumentor\Reflection\Types\Boolean;
 use Ramsey\Uuid\Exception\InvalidUuidStringException;
 
 abstract class Repository implements RepositoryInterface
@@ -77,7 +76,7 @@ abstract class Repository implements RepositoryInterface
         return $this;
     }
 
-    public function toModel(): Model
+    public function toModel() : Model
     {
         return $this->model;
     }
