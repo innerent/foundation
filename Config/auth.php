@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Innerent\People\Models\User::class,
+            'model' => Innerent\Authentication\Models\User::class,
         ],
 
         // 'users' => [
